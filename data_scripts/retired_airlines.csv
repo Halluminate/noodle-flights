@@ -1,0 +1,624 @@
+code,name,country,route_count,importance,hub_count
+1T,1Time Airline,South Africa,0,0.0,0
+I9,Air Italy,Italy,4,0.001610306,3
+PE,Air Europe,Italy,2,0.000805153,2
+EM,Aero Benin,Benin,0,0.0,0
+AQ,Aloha Airlines,United States,0,0.0,0
+VV,Aerosvit Airlines,Ukraine,0,0.0,0
+ZI,Aigle Azur,France,72,0.0289855072,3
+JP,Adria Airways,Slovenia,40,0.0161030596,3
+ZY,Ada Air,Albania,0,0.0,0
+5W,Astraeus,United Kingdom,0,0.0,0
+1B,Abacus International,Singapore,0,0.0,0
+AN,Ansett Australia,Australia,0,0.0,0
+JA,Air Bosna,Bosnia and Herzegovina,10,0.0040257649,3
+2O,Air Salone,Sierra Leone,10,0.0040257649,3
+PL,Aeroper,Peru,18,0.0072463768,3
+U3,Avies,Estonia,0,0.0,0
+SW,Air Namibia,Namibia,35,0.0140901771,3
+AB,Air Berlin,Germany,798,0.3212560386,5
+ZB,Air Bourbon,Reunion,210,0.0845410628,5
+8A,Atlas Blue,Morocco,0,0.0,0
+7T,Air Glaciers,Switzerland,0,0.0,0f
+S2,Air Sahara,India,180,0.0724637681,3
+KM,Air Malta,Malta,84,0.0338164251,3
+JM,Air Jamaica,Jamaica,0,0.0,0
+AP,Air One,Italy,88,0.0354267311,3
+VD,Air Libert,France,0,0.0,0
+QM,Air Malawi,Malawi,0,0.0,0
+BM,Air Sicilia,Italy,34,0.0136876006,3
+HP,America West Airlines,United States,0,0.0,0
+U9,Tatarstan Airlines,Russia,0,0.0,0
+4A,Air Kiribati,Kiribati,0,0.0,0
+EL,Air Nippon,Japan,6,0.0024154589,3
+GV,Aero Flight,Germany,34,0.0136876006,3
+2B,Aerocondor,Portugal,42,0.0169082126,3
+JW,Arrow Air,United States,8,0.0032206119,3
+4D,Air Sinai,Egypt,2,0.000805153,2
+OB,Astrakhan Airlines,Russia,28,0.0112721417,3
+4C,Aires, S.A.,0,0.0,0
+EV,Atlantic Southeast Airlines,United States,0,0.0,0
+FO,Airlines Of Tasmania,Australia,34,0.0136876006,3
+AU,Austral Lineas Aereas,Argentina,0,0.0,0
+5N,Aeroflot-Nord,Russia,22,0.0088566828,3
+IQ,Augsburg Airways,Germany,0,0.0,0
+B9,Air Bangladesh,Bangladesh,46,0.0185185185,3
+6G,Air Wales,United Kingdom,0,0.0,0
+DR,Air Mediterranee,France,0,0.0,0
+3G,Atlant-Soyuz Airlines,Russia,30,0.0120772947,3
+Z8,Amaszonas,Bolivia,39,0.0157004831,3
+XT,Air Exel,Netherlands,0,0.0,0
+AZ,Alitalia,Italy,877,0.3530595813,5
+R7,Aserca Airlines,Venezuela,26,0.0104669887,3
+7E,Aeroline GmbH,Germany,2,0.000805153,2
+GS,Air Foyle,United Kingdom,358,0.1441223833,5
+VU,Air Ivoire,Ivory Coast,0,0.0,0
+VL,Air VIA,Bulgaria,0,0.0,0
+FK,Africa West,Togo,0,0.0,0
+Q6,Aero Condor Peru,Peru,58,0.0233494364,3
+KI,Adam Air,Indonesia,0,0.0,0
+D9,Aeroflot-Don,Russia,0,0.0,0
+QH,Air Florida,United States,34,0.0136876006,3
+NM,Air Madrid,Spain,0,0.0,0
+ZA,Access Air,United States,0,0.0,0
+OF,Air Finland,Finland,0,0.0,0
+NY,Air Iceland,Iceland,10,0.0040257649,3
+2P,Air Philippines,Philippines,34,0.0136876006,3
+2U,Air Guinee Express,Guinea,0,0.0,0
+GG,Air Guyane,French Guiana,0,0.0,0
+9U,Air Moldova,Moldova,38,0.0152979066,3
+A7,Air Plus Comet,Spain,0,0.0,0
+KK,Atlasjet,Turkey,32,0.0128824477,3
+LV,Albanian Airlines,Albania,4,0.001610306,3
+LK,Air Luxor,Portugal,0,0.0,0
+W9,Air Bagan,Myanmar,29,0.0116747182,3
+8D,Astair,Russian Federation,8,0.0032206119,3
+OT,Aeropelican Air Services,Australia,0,0.0,0
+U8,Armavia,Armenia,0,0.0,0
+RE,Aer Arann,Ireland,0,0.0,0
+VW,Aeromar,Mexico,42,0.0169082126,3
+5L,Aerosur,Bolivia,0,0.0,0
+BF,Aero-Service,Republic of the Congo,4,0.001610306,3
+20,Air Salone,Sierra Leone,0,0.0,0
+QL,Aero Lanka,Sri Lanka,14,0.0056360709,3
+Z3,Avient Aviation,Zimbabwe,12,0.0048309179,3
+TD,Atlantis European Airways,Armenia,4,0.001610306,3
+6K,Asian Spirit,Philippines,0,0.0,0
+VO,Tyrolean Airways,Austria,0,0.0,0
+RK,Air Afrique,Ivory Coast,0,0.0,0
+2K,Aerolineas Galapagos (Aerogal),Ecuador,12,0.0048309179,3
+FL,AirTran Airways,United States,726,0.2922705314,5
+A5,Airlinair,France,150,0.0603864734,3
+P5,AeroRep,Colombia,0,0.0,0
+4T,Belair Airlines,Switzerland,12,0.0048309179,3
+KF,Blue1,Finland,0,0.0,0
+BD,bmi,United Kingdom,0,0.0,0
+LZ,Balkan Bulgarian Airlines,,0,0.0,0
+WW,bmibaby,United Kingdom,10,0.0040257649,3
+BV,Blue Panorama Airlines,Italy,49,0.019726248,3
+B3,Bellview Airlines,Nigeria,0,0.0,0
+DB,Brit Air,France,0,0.0,0
+QW,Blue Wings,Germany,0,0.0,0
+JV,Bearskin Lake Air Service,Canada,39,0.0157004831,3
+BS,British International Helicopters,United Kingdom,0,0.0,0
+CH,Bemidji Airlines,United States,0,0.0,0
+7P,Metro Batavia,Indonesia,27,0.0108695652,3
+0B,Blue Air,Romania,0,0.0,0
+KJ,British Mediterranean Airways,United Kingdom,0,0.0,0
+8N,Barents AirLink,Sweden,0,0.0,0
+CP,Canadian Airlines,Canada,0,0.0,0
+XG,Calima Aviacion,Spain,0,0.0,0
+NT,Binter Canarias,Spain,46,0.0185185185,3
+C0,Centralwings,Poland,0,0.0,0
+FB,Bulgaria Air,Bulgaria,56,0.0225442834,3
+3Q,Yunnan Airlines,China,0,0.0,0
+RV,Caspian Airlines,Iran,0,0.0,0
+C9,Cirrus Airlines,Germany,0,0.0,0
+CF,City Airline,Sweden,0,0.0,0
+G3,City Connexion Airlines,Burundi,332,0.1336553945,5
+EC,Avialeasing Aviation Company,Uzbekistan,0,0.0,0
+CP,Compass Airlines,United States,0,0.0,0
+MN,Comair,South Africa,14,0.0056360709,3
+9L,Colgan Air,United States,0,0.0,0
+QI,Cimber Air,Denmark,0,0.0,0
+CO,Continental Airlines,United States,0,0.0,0
+CO,Continental Express,United States,0,0.0,0
+6A,Consorcio Aviaxsa,Mexico,0,0.0,0
+CS,Continental Micronesia,United States,0,0.0,0
+C3,Contact Air,Germany,0,0.0,0
+OH,Comair,United States,0,0.0,0
+DQ,Coastal Air,United States,0,0.0,0
+YK,Cyprus Turkish Airlines,Turkey,34,0.0136876006,3
+OK,Czech Airlines,Czech Republic,111,0.0446859903,3
+H8,Dalavia,Russia,0,0.0,0
+DO,Dominicana de Aviaci,Dominican Republic,0,0.0,0
+0D,Darwin Airline,Switzerland,0,0.0,0
+5D,DonbassAero,Ukraine,0,0.0,0
+KA,Dragonair,DRAGON,96,0.038647343,3
+E3,Domodedovo Airlines,Russia,0,0.0,0
+RP,Chautauqua Airlines,United States,0,0.0,0
+D8,Djibouti Airlines,Djibouti,0,0.0,0
+DI,dba,Germany,0,0.0,0
+QU,East African,Uganda,4,0.001610306,3
+DK,Eastland Air,Australia,0,0.0,0
+OV,Estonian Air,Estonia,26,0.0104669887,3
+EA,European Air Express,Germany,0,0.0,0
+K2,Eurolot,Poland,36,0.0144927536,3
+GJ,Eurofly Service,Italy,0,0.0,0
+RZ,Euro Exec Express,Sweden,17,0.0068438003,3
+UI,Eurocypria Airlines,Cyprus,0,0.0,0
+EZ,Evergreen International Airlines,United States,0,0.0,0
+XE,ExpressJet,United States,0,0.0,0
+FC,Finncomm Airlines,Finland,0,0.0,0
+EF,Far Eastern Air Transport,Taiwan,8,0.0032206119,3
+EO,Express One International,United States,12,0.0048309179,3
+RF,Florida West International Airways,United States,0,0.0,0
+JN,Excel Airways,United Kingdom,8,0.0032206119,3
+EU,Empresa Ecuatoriana De Aviacion,Ecuador,80,0.0322061192,3
+XM,Alitalia Express,Italy,0,0.0,0
+7F,First Air,Canada,74,0.0297906602,3
+TE,FlyLal,Lithuania,11,0.0044283414,3
+DP,First Choice Airways,United Kingdom,0,0.0,0
+BE,Flybe,United Kingdom,268,0.1078904992,5
+LF,FlyNordic,Sweden,4,0.001610306,3
+F7,Flybaboo,Switzerland,38,0.0152979066,3
+B8,Eritrean Airlines,Eritrea,0,0.0,0
+VY,Formosa Airlines,Taiwan,384,0.154589372,5
+GT,GB Airways,United Kingdom,0,0.0,0
+B5,Flightline,United Kingdom,26,0.0104669887,3
+FP,Freedom Air,United States,0,0.0,0
+2F,Frontier Flying Service,United States,0,0.0,0
+ST,Germania,Germany,96,0.038647343,3
+B4,Flyglobespan,United Kingdom,0,0.0,0
+G8,Go Air,India,77,0.0309983897,3
+G0,Ghana International Airlines,Ghana,0,0.0,0
+ZK,Great Lakes Airlines,United States,61,0.0245571659,3
+QB,Georgian National Airlines,Georgia,12,0.0048309179,3
+DC,Golden Air,Sweden,20,0.0080515298,3
+4R,Hamburg International,Germany,0,0.0,0
+H6,Hageland Aviation Services,United States,0,0.0,0
+4U,Germanwings,Germany,470,0.1892109501,5
+HW,Hello,Switzerland,10,0.0040257649,3
+8H,Heli France,France,0,0.0,0
+BH,Hawkair,Canada,8,0.0032206119,3
+HF,Hapagfly,Germany,25,0.0100644122,3
+2T,Haiti Ambassador Airlines,Haiti,0,0.0,0
+T4,Hellas Jet,Greece,0,0.0,0
+UD,Hex'Air,France,2,0.000805153,2
+BN,Horizon Airlines,Australia,0,0.0,0
+IK,Imair Airlines,Azerbaijan,0,0.0,0
+TY,Iberworld,Spain,23,0.0092592593,3
+3L,Intersky,Austria,26,0.0104669887,3
+QZ,Indonesia AirAsia,Indonesia,62,0.0249597424,3
+IC,Indian Airlines,India,0,0.0,0
+FW,Ibex Airlines,Japan,32,0.0128824477,3
+IO,Indonesian Airlines,Indonesia,0,0.0,0
+ZA,Interavia Airlines,Russia,0,0.0,0
+I9,Indigo,United States,4,0.001610306,3
+D6,Interair South Africa,South Africa,2,0.000805153,2
+IS,Island Airlines,United States,0,0.0,0
+WC,Islena De Inversiones,Honduras,0,0.0,0
+8L,Cargo Plus Aviation,United Arab Emirates,130,0.0523349436,3
+ID,Interlink Airlines,South Africa,16,0.0064412238,3
+IF,Islas Airways,Spain,0,0.0,0
+GI,Itek Air,Kyrgyzstan,0,0.0,0
+JO,JALways,Japan,0,0.0,0
+9W,Jet Airways,India,292,0.1175523349,5
+8J,Jet4You,Morocco,0,0.0,0
+JC,JAL Express,Japan,0,0.0,0
+KD,KD Avia,Russia,0,0.0,0
+3K,Jetstar Asia Airways,Singapore,36,0.0144927536,3
+EG,Japan Asia Airways,Japan,18,0.0072463768,3
+KV,Kavminvodyavia,Russia,0,0.0,0
+7K,Kogalymavia Air Company,Russia,0,0.0,0
+IT,Kingfisher Airlines,India,0,0.0,0
+JF,Jetairfly,Belgium,0,0.0,0
+7B,Krasnojarsky Airlines,Russia,0,0.0,0
+4M,LAN Argentina,Argentina,10,0.0040257649,3
+LR,LACSA,Costa Rica,24,0.0096618357,3
+XO,LTE International Airways,Spain,0,0.0,0
+LU,LAN Express,Chile,0,0.0,0
+NG,Lauda Air,Austria,0,0.0,0
+GW,Kuban Airlines,Russia,0,0.0,0
+L3,LTU Austria,Austria,0,0.0,0
+HE,Luftfahrtgesellschaft Walter,Germany,0,0.0,0
+IN,MAT Macedonian Airlines,Macedonia,0,0.0,0
+LI,Leeward Islands Air Transport,Antigua and Barbuda,62,0.0249597424,3
+MJ,L,Argentina,52,0.0209339775,3
+TF,Malmö Aviation,Sweden,36,0.0144927536,3
+MA,Malév,Hungary,0,0.0,0
+CC,Macair Airlines,Australia,13,0.0052334944,3
+R5,Malta Air Charter,Malta,0,0.0,0
+JT,Lion Mentari Airlines,Indonesia,251,0.1010466989,5
+RI,Mandala Airlines,Indonesia,16,0.0064412238,3
+8M,Maxair,Sweden,12,0.0048309179,3
+DM,Maersk,Denmark,0,0.0,0
+IG,Meridiana,Italy,173,0.0696457327,3
+XJ,Mesaba Airlines,United States,0,0.0,0
+MZ,Merpati Nusantara Airlines,Indonesia,0,0.0,0
+JE,Mango,South Africa,18,0.0072463768,3
+MY,Midwest Airlines (Egypt),Egypt,32,0.0128824477,3
+2M,Moldavian Airlines,Moldova,0,0.0,0
+3R,Moskovia Airlines,Russia,20,0.0080515298,3
+YM,Montenegro Airlines,Montenegro,26,0.0104669887,3
+VZ,MyTravel Airways,United Kingdom,0,0.0,0
+ZB,Monarch Airlines,United Kingdom,210,0.0845410628,5
+JI,Midway Airlines,United States,0,0.0,0
+M9,Motor Sich,Ukraine,6,0.0024154589,3
+UE,Nasair,Eritrea,16,0.0064412238,3
+UB,Myanma Airways,Myanmar,0,0.0,0
+CE,Nationwide Airlines,South Africa,10,0.0040257649,3
+MW,Maya Island Air,Belize,19,0.0076489533,3
+8I,Myway Airlines,Italy,6,0.0024154589,3
+HG,Niki,Austria,111,0.0446859903,3
+NW,Northwest Airlines,United States,0,0.0,0
+2N,NextJet,Sweden,41,0.0165056361,3
+1I,Novair,Sweden,0,0.0,0
+O6,Oceanair,Brazil,104,0.0418679549,3
+U7,Northern Dene Airways,Canada,16,0.0064412238,3
+J3,Northwestern Air,Canada,18,0.0072463768,3
+OA,Olympic Airlines,Greece,110,0.0442834138,3
+R2,Orenburg Airlines,Russia,9,0.0036231884,3
+O8,Oasis Hong Kong Airlines,Hong Kong,0,0.0,0
+QO,Origin Pacific Airways,New Zealand,0,0.0,0
+OX,Orient Thai Airlines,Thailand,6,0.0024154589,3
+OL,Ostfriesische Lufttransport,Germany,0,0.0,0
+8Q,Onur Air,Turkey,36,0.0144927536,3
+9Q,PB Air,Thailand,4,0.001610306,3
+O7,Ozjet Airlines,Australia,0,0.0,0
+PU,PLUNA,Uruguay,0,0.0,0
+LW,Pacific Wings,United States,10,0.0040257649,3
+PV,PAN Air,Spain,6,0.0024154589,3
+BL,Jetstar Pacific,Vietnam,18,0.0072463768,3
+PI,Piedmont Airlines (1948-1989),United States,14,0.0056360709,3
+Q8,Pacific East Asia Cargo Airlines,Philippines,14,0.0056360709,3
+U4,PMTair,Cambodia,0,0.0,0
+I7,Paramount Airways,India,0,0.0,0
+O2,Oceanic Airlines,Guinea,0,0.0,0
+BK,Potomac Air,United States,106,0.0426731079,3
+KS,Peninsula Airways,United States,28,0.0112721417,3
+9E,Pinnacle Airlines,United States,46,0.0185185185,3
+RW,Republic Airlines,United States,0,0.0,0
+FN,Regional Airlines,Morocco,0,0.0,0
+R6,RACSA,Guatemala,0,0.0,0
+RH,Republic Express Airlines,Indonesia,0,0.0,0
+NL,Shaheen Air International,Pakistan,64,0.0257648953,3
+YS,Régional,France,0,0.0,0
+RD,Ryan International Airlines,United States,0,0.0,0
+5M,Sibaviatrans,Russia,2,0.000805153,2
+SI,Skynet Airlines,Ireland,20,0.0080515298,3
+FT,Siem Reap Airways,Cambodia,0,0.0,0
+N5,Skagway Air Service,United States,0,0.0,0
+5G,Skyservice Airlines,Canada,2,0.000805153,2
+ZS,Sama Airlines,Saudi Arabia,0,0.0,0
+SJ,Sriwijaya Air,Indonesia,106,0.0426731079,3
+FS,Servicios de Transportes A,Argentina,17,0.0068438003,3
+7G,Star Flyer,Japan,6,0.0024154589,3
+SR,Swissair,Switzerland,0,0.0,0
+WV,Swe Fly,Sweden,0,0.0,0
+NE,SkyEurope,Slovakia,0,0.0,0
+JZ,Skyways Express,Sweden,0,0.0,0
+S3,Santa Barbara Airlines,Venezuela,6,0.0024154589,3
+AL,Skywalk Airlines,United States,0,0.0,0
+MI,SilkAir,Singapore,93,0.0374396135,3
+6W,Saratov Aviation Division,Russia,10,0.0040257649,3
+S5,Shuttle America,United States,15,0.0060386473,3
+JK,Spanair,Spain,0,0.0,0
+6J,Skynet Asia Airways,Japan,0,0.0,0
+HZ,Sat Airlines,Kazakhstan,17,0.0068438003,3
+A4,Southern Winds Airlines,Argentina,23,0.0092592593,3
+NB,Sterling Airlines,Denmark,0,0.0,0
+EQ,TAME,Ecuador,48,0.0193236715,3
+TT,Tiger Airways Australia,Australia,42,0.0169082126,3
+T2,Thai Air Cargo,Thailand,0,0.0,0
+TR,Tiger Airways,Singapore,76,0.0305958132,3
+FQ,Thomas Cook Airlines,Belgium,0,0.0,0
+MT,Thomas Cook Airlines,United Kingdom,0,0.0,0
+BY,Thomsonfly,United Kingdom,0,0.0,0
+3P,Tiara Air,Aruba,6,0.0024154589,3
+QT,TAMPA,Colombia,0,0.0,0
+GE,TransAsia Airways,Taiwan,92,0.037037037,3
+9T,Transwest Air,Canada,0,0.0,0
+TL,Trans Mediterranean Airlines,Lebanon,33,0.0132850242,3
+UN,Transaero Airlines,Russia,300,0.1207729469,5
+8R,TRIP Linhas A,Brazil,35,0.0140901771,3
+PZ,TAM Mercosur,Paraguay,18,0.0072463768,3
+3T,Turan Air,Azerbaijan,0,0.0,0
+UF,UM Airlines,Ukraine,0,0.0,0
+AX,Trans States Airlines,United States,0,0.0,0
+US,US Airways,United States,1960,0.7890499195,10
+PS,Ukraine International Airlines,Ukraine,127,0.0511272142,3
+UH,US Helicopter Corporation,United States,0,0.0,0
+NN,VIM Airlines,Russia,0,0.0,0
+VX,Virgin America,United States,66,0.0265700483,3
+TV,Virgin Express,Belgium,42,0.0169082126,3
+VK,Virgin Nigeria Airways,Nigeria,0,0.0,0
+VF,Valuair,Singapore,6,0.0024154589,3
+VE,Volare Airlines,Italy,0,0.0,0
+LC,Varig Log,Brazil,16,0.0064412238,3
+XF,Vladivostok Air,Russia,0,0.0,0
+ZG,Viva Macau,Macao,0,0.0,0
+U5,USA3000 Airlines,United States,0,0.0,0
+WJ,WebJet Linhas A,Brazil,38,0.0152979066,3
+VP,VASP,Brazil,0,0.0,0
+7W,Wayraper,Peru,0,0.0,0
+WA,Western Airlines,United States,0,0.0,0
+RG,VRG Linhas Aereas,Brazil,10,0.0040257649,3
+VG,VLM Airlines,Belgium,0,0.0,0
+8O,West Coast Air,Canada,0,0.0,0
+IV,Wind Jet,Italy,0,0.0,0
+SE,XL Airways France,France,32,0.0128824477,3
+XW,Sky Express,Russia,0,0.0,0
+WO,World Airways,United States,0,0.0,0
+8Q,Maldivian Air Taxi,Maldives,36,0.0144927536,3
+Z4,Zoom Airlines,Canada,10,0.0040257649,3
+2W,Welcome Air,Austria,0,0.0,0
+GH,Globus,Russia,0,0.0,0
+VJ,Royal Air Cambodge,Cambodia,34,0.0136876006,3
+6T,Air Mandalay,Burma,22,0.0088566828,3
+9Y,Air Kazakhstan,Kazakhstan,0,0.0,0
+JD,Japan Air System,Japan,214,0.0861513688,5
+WP,Island Air (WP),United States,6,0.0024154589,3
+5H,Fly540,Kenya,18,0.0072463768,3
+KW,Carnival Air Lines,United States,0,0.0,0
+YD,Gomelavia,Belarus,0,0.0,0
+4H,United Airways,Bangladesh,32,0.0128824477,3
+HK,Yangon Airways,Burma,6,0.0024154589,3
+GY,Gabon Airlines,Gabon,2,0.000805153,2
+11,TUIfly (X3),Germany,0,0.0,0
+YX,Midwest Airlines,United States,0,0.0,0
+--,ELK Airways,Estonia,0,0.0,0
+Z2,Zest Air,Philippines,32,0.0128824477,3
+ML,Maldivo Airlines,Maldives,0,0.0,0
+VH,Virgin Pacific,Fiji,12,0.0048309179,3
+B1,Baltic Air lines,Latvia,0,0.0,0
+CN,Canadian National Airways,Canada,10,0.0040257649,3
+5P,Pal airlines,Chile,4,0.001610306,3
+3I,Air Comet Chile,Chile,0,0.0,0
+SZ,Salzburg arrows,Austria,48,0.0193236715,3
+TQ,Texas Wings,United States,0,0.0,0
+V5,Danube Wings (V5),Slovakia,0,0.0,0
+ZZ,Zz,Belgium,0,0.0,0
+QA,Click (Mexicana),Mexico,0,0.0,0
+DH,Dennis Sky,Israel,13,0.0052334944,3
+C1,CanXpress,Canada,0,0.0,0
+99,Ciao Air,Italy,0,0.0,0
+L8,Line Blue,Germany,0,0.0,0
+SH,Sharp Airlines,Australia,10,0.0040257649,3
+3E,Air Choice One,United States,10,0.0040257649,3
+C2,CanXplorer,Canada,0,0.0,0
+A1,Atifly,United States,0,0.0,0
+ZQ,Locair,United States,0,0.0,0
+V9,Star1 Airlines,Lithuania,10,0.0040257649,3
+I6,MexicanaLink,Mexico,20,0.0080515298,3
+4Q,Safi Airlines,Afghanistan,14,0.0056360709,3
+01,Bobb Air Freight,Germany,0,0.0,0
+PF,Primera Air,Iceland,0,0.0,0
+T0,TACA Peru,Peru,0,0.0,0
+J4,ALAK,Russia,8,0.0032206119,3
+W1,World Experience Airline,Canada,0,0.0,0
+V6,VIP Ecuador,Ecuador,0,0.0,0
+J5,Alaska Seaplane Service,United States,15,0.0060386473,3
+7Q,Pan Am World Airways Dominicana,Dominican Republic,0,0.0,0
+P9,Peruvian Airlines,Peru,16,0.0064412238,3
+IP,Island Spirit,Iceland,0,0.0,0
+OC,Catovair,Mauritius,8,0.0032206119,3
+4P,Business Aviation,Congo (Kinshasa),0,0.0,0
+7Z,Halcyonair,Cape Verde,0,0.0,0
+K7,KoralBlue Airlines,Egypt,0,0.0,0
+P7,Regional Paraguaya,Paraguay,0,0.0,0
+K8,Zambia Skyways,Zambia,8,0.0032206119,3
+HT,Hellenic Imperial Airways,Greece,0,0.0,0
+Q9,Arik Niger,Niger,24,0.0096618357,3
+WD,Amsterdam Airlines,Netherlands,0,0.0,0
+7Y,Med Airways,Lebanon,0,0.0,0
+ZF,Athens Airways,Greece,0,0.0,0
+DA,Dana Air,Nigeria,0,0.0,0
+UQ,Skyjet Airlines,Uganda,0,0.0,0
+RL,Royal Falcon,Jordan,9,0.0036231884,3
+VQ,Viking Hellas,Greece,8,0.0032206119,3
+SM,Spirit of Manila Airlines,Philippines,0,0.0,0
+G6,Air Volga,Russia,0,0.0,0
+4L,Euroline,Georgia,0,0.0,0
+GP,Gadair European Airlines,Spain,0,0.0,0
+6P,Gryphon Airlines,United States,0,0.0,0
+L7,Lugansk Airlines,Ukraine,0,0.0,0
+E4,Elysian Airlines,Cameroon,0,0.0,0
+JR,Joy Air,China,0,0.0,0
+DZ,Starline.kz,Kazakhstan,4,0.001610306,3
+1C,OneChina,China,0,0.0,0
+PN,West Air China,China,90,0.0362318841,3
+CD,Air India Regional,India,0,0.0,0
+XN,Xpressair,Indonesia,0,0.0,0
+F8,Air2there,New Zealand,0,0.0,0
+5E,SGA Airlines,Thailand,0,0.0,0
+C3,QatXpress,Qatar,0,0.0,0
+VC,Strategic Airlines,Australia,0,0.0,0
+AO,Avianova (Russia),Russia,0,0.0,0
+9H,MDLR Airlines,India,0,0.0,0
+MR,Homer Air,Germany,21,0.0084541063,3
+ES,EuropeSky,Germany,0,0.0,0
+PA,Parmiss Airlines (IPV),Iran,0,0.0,0
+WU,Wizz Air Ukraine,Ukraine,42,0.0169082126,3
+BQ,Buquebus Líneas Aéreas,Uruguay,0,0.0,0
+-+,U.S. Air,United States,0,0.0,0
+WQ,PanAm World Airways,United States,0,0.0,0
+^^,Whitaker Air,Australia,0,0.0,0
+;;,Wilderness Air,Australia,0,0.0,0
+47,88,Cyprus,0,0.0,0
+YY,Virginwings,Germany,0,0.0,0
+GB,BRAZIL AIR,Brazil,0,0.0,0
+69,Royal European Airlines,United Kingdom,0,0.0,0
+LQ,LCM AIRLINES,Russia,0,0.0,0
+&T,Tom\\'s & co airliners,France,0,0.0,0
+XZ,Congo Express,Congo (Kinshasa),0,0.0,0
+UR,UTair-Express,Russia,76,0.0305958132,3
+C4,LionXpress,Cameroon,0,0.0,0
+ZP,Zabaykalskii Airlines,Russia,0,0.0,0
+TB,TrasBrasil,Brazil,0,0.0,0
+M4,Marysya Airlines,Russia,19,0.0076489533,3
+N1,N1,Peru,0,0.0,0
+D1,Domenican Airlines,Dominican Republic,0,0.0,0
+YZ,LSM AIRLINES ,Russia,0,0.0,0
+PQ,LSM Airlines,Russia,6,0.0024154589,3
+HH,Air Hamburg (AHO),Germany,0,0.0,0
+P8,Air Mekong,Vietnam,0,0.0,0
+3B,JobAir,Czech Republic,0,0.0,0
+BZ,Black Stallion Airways,United States,0,0.0,0
+TI,TransHolding,Brazil,0,0.0,0
+GM,German International Air Lines,Germany,0,0.0,0
+TH,TransBrasil Airlines,Brazil,0,0.0,0
+Z6,ZABAIKAL AIRLINES,Russia,20,0.0080515298,3
+МИ,KMV,Russia,0,0.0,0
+CB,CCML Airlines,Colombia,0,0.0,0
+S1,Serbian Airlines,Serbia,0,0.0,0
+W7,Austral Brasil,Brazil,0,0.0,0
+YO,TransHolding System,Brazil,4,0.001610306,3
+G1,Indya Airline Group,India,0,0.0,0
+RS,Sky Regional,Canada,0,0.0,0
+WG,Sunwing,Canada,0,0.0,0
+Y1,Yellowstone Club Private Shuttle,United States,0,0.0,0
+N0,Norte Lineas Aereas,Argentina,0,0.0,0
+T6,Trans Pas Air,United States,0,0.0,0
+F1,Fly Brasil,Brazil,0,0.0,0
+6U,Air Cargo Germany,Germany,0,0.0,0
+ZX,Japan Regio,Japan,0,0.0,0
+NS,Caucasus Airlines,Georgia,62,0.0249597424,3
+3F,Fly Colombia ( Interliging Flights ),Colombia,12,0.0048309179,3
+II,LSM International ,Russia,0,0.0,0
+7M,Mongolian International Air Lines ,Mongolia,8,0.0032206119,3
+L4,Luchsh Airlines ,Russia,0,0.0,0
+Z7,REDjet,Barbados,0,0.0,0
+GN,GNB Linhas Aereas,Brazil,0,0.0,0
+PT,Red Jet Andes,Peru,0,0.0,0
+YQ,Polet Airlines (Priv),Russia,14,0.0056360709,3
+XV,BVI Airways,British Virgin Islands,6,0.0024154589,3
+CQ,SOCHI AIR,Russia,0,0.0,0
+Y8,Marusya Airways,Russia,30,0.0120772947,3
+HN,Hankook Airline,South Korea,6,0.0024154589,3
+ZJ,Zambezi Airlines (ZMA),Zambia,0,0.0,0
+W4,AeroWorld ,Russia,14,0.0056360709,3
+4X,Red Jet Mexico,Mexico,0,0.0,0
+R8,AirRussia,Russia,0,0.0,0
+7H,Era Alaska,United States,224,0.0901771337,5
+12,12 North,India,0,0.0,0
+E1,Usa Sky Cargo,United States,0,0.0,0
+SO,Salsa d\\'Haiti,Haiti,0,0.0,0
+L6,Mauritania Airlines International,Mauritania,30,0.0120772947,3
+6F,MAT Airways,Macedonia,0,0.0,0
+AW,Asian Wings Airways,Burma,6,0.0024154589,3
+CT,Alitalia Cityliner,Italy,0,0.0,0
+S9,Starbow Airlines,Ghana,8,0.0032206119,3
+C7,Sky Wing Pacific,South Korea,0,0.0,0
+OI,Orchid Airlines,Australia,0,0.0,0
+PP,Air Indus,Pakistan,0,0.0,0
+8B,BusinessAir,Thailand,12,0.0048309179,3
+DN,Senegal Airlines,Senegal,32,0.0128824477,3
+I5,Indonesia Sky,Indonesia,0,0.0,0
+6I,Fly 6ix,Sierra Leone,2,0.000805153,2
+0X,Copenhagen Express,Denmark,0,0.0,0
+U1,Aviabus,Russia,0,0.0,0
+XR,Skywest Australia,Australia,0,0.0,0
+DF,Michael Airlines,Puerto Rico,0,0.0,0
+ZC,Korongo Airlines,Congo (Kinshasa),0,0.0,0
+76,Southjet,United States,0,0.0,0
+B0,Aws express,United States,0,0.0,0
+Y5,Asia Wings,Kazakhstan,4,0.001610306,3
+4O,Interjet (ABC Aerolineas),Mexico,114,0.0458937198,3
+77,Southjet connect,United States,0,0.0,0
+I2,Iberia Express,Spain,0,0.0,0
+A6,Air Alps Aviation (A6),Austria,0,0.0,0
+NJ,Nordic Global Airlines,Finland,0,0.0,0
+78,Southjet cargo,United States,0,0.0,0
+OG,AirOnix,Ukraine,0,0.0,0
+P4,Patriot Airways,United States,21,0.0084541063,3
+WH,China Northwest Airlines (WH),China,0,0.0,0
+5Q,BQB Lineas Aereas,Uruguay,18,0.0072463768,3
+V2,Vision Airlines (V2),United States,0,0.0,0
+FH,FlyHigh Airlines Ireland (FH),Ireland,0,0.0,0
+O1,Orbit Airlines Azerbaijan,Azerbaijan,0,0.0,0
+ZN,Zenith International Airline,Thailand,0,0.0,0
+YH,Yangon Airways Ltd.,Burma,0,0.0,0
+SX,SkyWork Airlines ,Switzerland,24,0.0096618357,3
+7I,Insel Air (7I/INC) (Priv),Netherlands Antilles,45,0.018115942,3
+TJ,T.J. Air,United States,14,0.0056360709,3
+W2,Maastricht Airlines,Netherlands,62,0.0249597424,3
+Q3,SOCHI AIR CHATER,Russia,2,0.000805153,2
+24,Euro Jet,Germany,0,0.0,0
+J7,Denim Air ,Norway,0,0.0,0
+M1,Maryland Air,United States,0,0.0,0
+YE,Yellowtail,United States,0,0.0,0
+5Z,VivaColombia,Colombia,7,0.0028180354,3
+I8,IzAvia,Russia,8,0.0032206119,3
+S8,Snowbird Airlines,Finland,0,0.0,0
+NR,Jettor Airlines,Hong Kong,0,0.0,0
+KH,Kharkiv Airlines,Ukraine,0,0.0,0
+LB,Air Costa,India,0,0.0,0
+LT,Air Lituanica,Lithuania,12,0.0048309179,3
+QD,Dobrolet,Russia,0,0.0,0
+RM,Rainbow Air US,United States,0,0.0,0
+RN,Rainbow Air (RAI),United States,0,0.0,0
+XP,XPTO,Portugal,0,0.0,0
+ZM,Apache Air,United States,4,0.001610306,3
+RX,Rainbow Air Polynesia,United States,20,0.0080515298,3
+..,Avilu,Switzerland,0,0.0,0
+RU,Rainbow Air Euro,United Kingdom,0,0.0,0
+RY,Rainbow Air Canada,Canada,0,0.0,0
+A2,All America,United States,10,0.0040257649,3
+L9,All Asia,China,0,0.0,0
+N9,All Europe,United Kingdom,0,0.0,0
+9A,All Africa,South Africa,0,0.0,0
+9X,Regionalia Venezuela,Venezuela,0,0.0,0
+9J,Regionalia Chile,Chile,0,0.0,0
+2X,Regionalia Uruguay,Uruguay,0,0.0,0
+8K,Voestar,Brazil,0,0.0,0
+PO,FlyPortugal,Portugal,0,0.0,0
+N7,All Spain,Spain,0,0.0,0
+KP,Dense Airways,United States,0,0.0,0
+ER,Fly Europa,Spain,0,0.0,0
+6C,Vuela Cuba,Cuba,0,0.0,0
+WE,Thai Smile Airways,Thailand,0,0.0,0
+1X,Island Express Air,Canada,0,0.0,0
+88,All Australia,Australia,0,0.0,0
+7O,All Colombia,Colombia,0,0.0,0
+Z0,All Argentina Express,Argentina,0,0.0,0
+RT,Real Tonga,Tonga,0,0.0,0
+2R,All America AR,Argentina,0,0.0,0
+DU,Norwegian Long Haul AS,Norway,0,0.0,0
+KZ,Dense Connection,United States,0,0.0,0
+S0,Spike Airlines,United States,0,0.0,0
+E8,City Airways,Thailand,6,0.0024154589,3
+X5,Fly Romania,Romania,0,0.0,0
+1R,All America CL,Chile,0,0.0,0
+9V,Volotea Costa Rica,Costa Rica,31,0.0124798712,3
+0M,All America MX,Mexico,0,0.0,0
+1Y,All America BR,Brazil,0,0.0,0
+0Y,All America CO,Colombia,0,0.0,0
+E2,Eagle Atlantic Airlines,Ghana,12,0.0048309179,3
+FX,FOX Linhas Aereas,Brazil,0,0.0,0
+J1,OneJet,United States,0,0.0,0
+0G,Global Airlines,Argentina,0,0.0,0
+ZT,Tomp Airlines,Chile,0,0.0,0
+1E,TransRussiaAirlines,Russia,0,0.0,0
+OP,Air Pegasus,India,0,0.0,0
+D2,Severstal Air Company,Russia,18,0.0072463768,3
+UK,Air Vistara,India,0,0.0,0
+9I,International Europe,Spain,0,0.0,0
+Q4,SOCHI AIR EXPRESS,Russia,0,0.0,0
+LE,Liberty Airways,United States,0,0.0,0
+5B,Bassaka airlines,Cambodia,0,0.0,0
+ZV,V Air,Taiwan,0,0.0,0
+Z5,INAVIA Internacional,Argentina,0,0.0,0
+GX,GermanXL,Germany,0,0.0,0
+6V,Via Conectia Airlines,Uruguay,0,0.0,0
+Q7,SkyBahamas Airlines,Bahamas,14,0.0056360709,3
+V1,VIA Líneas Aéreas,Argentina,0,0.0,0
+FF,Fly France,France,0,0.0,0
+АЯ,Аэросервис,Russia,0,0.0,0
+EE,Nordica,Estonia,0,0.0,0
+EX,Europe Jet,France,0,0.0,0
+AG,All America US,United States,0,0.0,0
+2S,Air Carnival,India,0,0.0,0
+3M,Silver Airways (3M),United States,67,0.0269726248,3
+7R,Svyaz Rossiya,Russia,72,0.0289855072,3
+JG,Jetgo Australia,Australia,0,0.0,0

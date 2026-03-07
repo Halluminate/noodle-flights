@@ -1,0 +1,23 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 Running flight data consistency checks..."
+
+# Check local determinism first
+pnpm test:determinism
+if [ $? -ne 0 ]; then
+  echo "❌ Local determinism check failed!"
+  echo "   Flight data is not deterministic. This will break downstream users."
+  exit 1
+fi
+
+echo "✅ Local determinism check passed"
+echo ""
+echo "🔎 Running typecheck..."
+pnpm typecheck
+if [ $? -ne 0 ]; then
+  echo "❌ Typecheck failed!"
+  exit 1
+fi
+
+echo "✅ Typecheck passed"
