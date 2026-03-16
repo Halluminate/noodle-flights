@@ -1,0 +1,4 @@
+name: noodle_flights
+description: OpenEnv wrapper around the Noodle Flights deterministic flight search simulator.
+version: 0.1.0
+python_class: noodle_flights:NoodleFlightsEnv
