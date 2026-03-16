@@ -1,0 +1,10 @@
+.git
+.github
+.next
+.pnpm-store
+.venv
+__pycache__
+*.pyc
+*.pyo
+node_modules
+tsconfig.tsbuildinfo

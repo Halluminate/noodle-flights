@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openenv-noodle-flights"
+version = "0.1.0"
+description = "OpenEnv wrapper around the Noodle Flights deterministic flight simulator."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "openenv-core[core]>=0.2.1",
+  "requests>=2.32.0",
+]
+
+[project.scripts]
+server = "noodle_flights.server.app:main"
+
+[tool.setuptools]
+packages = ["noodle_flights", "noodle_flights.server"]
+package-dir = { "noodle_flights" = ".", "noodle_flights.server" = "server" }
