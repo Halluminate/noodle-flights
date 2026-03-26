@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "noodle-flights"
+version = "0.1.0"
+description = "Prime environment package for the Noodle Flights deterministic flight-search simulator."
+readme = "README.md"
+requires-python = ">=3.10"
+tags = ["openenv", "mcp", "flight-search", "tool-use", "eval"]
+dependencies = [
+  "PyYAML>=6.0",
+  "verifiers[openenv]>=0.1.11",
+]
+
+[tool.hatch.build]
+include = [
+  "README.md",
+  "noodle_flights.py",
+  "pyproject.toml",
+  "proj/**",
+]
+
+[tool.verifiers.eval]
+num_examples = 2
+rollouts_per_example = 1
