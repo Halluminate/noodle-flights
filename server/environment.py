@@ -314,6 +314,9 @@ class NoodleFlightsEnvironment(MCPEnvironment):
             "return_date": self.task.return_date,
             "travel_class": self.task.travel_class,
             "trip_type": self.task.trip_type,
+            # The rubric's "cheapest" is the cheapest option in the last search, so
+            # that search must not hide cheaper flights behind the layover filter.
+            "exclude_layovers": False,
         }
         for key, value in expected.items():
             if self.last_search_request.get(key) != value:
