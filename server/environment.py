@@ -8,8 +8,10 @@ from typing import Any, Literal
 import requests
 from fastmcp import FastMCP
 from openenv.core import Action, MCPEnvironment, Observation, State
+from openenv.core.env_server.interfaces import Environment
 
 TripType = Literal["one-way", "round-trip"]
+Leg = Literal["departing", "returning"]
 
 
 @dataclass(frozen=True)
@@ -72,6 +74,9 @@ class NoodleFlightsEnvironment(MCPEnvironment):
         self.last_search_results: dict[str, list[dict[str, Any]]] = {"departing": [], "returning": []}
         self.selected_departing: dict[str, Any] | None = None
         self.selected_returning: dict[str, Any] | None = None
+        self.evaluation: dict[str, Any] | None = None
+        self._reference_prices: dict[str, int | None] | None = None
+        self._reward_reported = False
 
     def _register_tools(self) -> None:
         @self.mcp.tool
@@ -94,6 +99,7 @@ class NoodleFlightsEnvironment(MCPEnvironment):
             exclude_layovers: bool = False,
             limit: int = 10,
         ) -> dict[str, Any]:
+            self._require_active_episode()
             if trip_type == "round-trip" and not return_date:
                 raise ValueError("return_date is required for round-trip searches")
 
@@ -140,6 +146,7 @@ class NoodleFlightsEnvironment(MCPEnvironment):
 
         @self.mcp.tool
         def select_departing_flight(option_id: int) -> dict[str, Any]:
+            self._require_active_episode()
             self.selected_departing = self._select_option("departing", option_id)
             self.status = "outbound-selected"
             self.last_error = None
@@ -150,6 +157,7 @@ class NoodleFlightsEnvironment(MCPEnvironment):
 
         @self.mcp.tool
         def select_returning_flight(option_id: int) -> dict[str, Any]:
+            self._require_active_episode()
             self.selected_returning = self._select_option("returning", option_id)
             self.status = "return-selected"
             self.last_error = None
@@ -170,16 +178,19 @@ class NoodleFlightsEnvironment(MCPEnvironment):
 
         @self.mcp.tool
         def complete_booking() -> dict[str, Any]:
-            result = self._evaluate_completion()
+            """Submit the selected flights. This ends the episode; the submission is final."""
+            self._require_active_episode()
+            self._evaluate_completion()
             return {
                 "done": self.done,
                 "reward": self.reward,
                 "status": self.status,
-                "result": result,
+                "message": "Booking submitted. The episode has ended.",
             }
 
         @self.mcp.tool
         def abandon_episode(reason: str = "agent_abandoned") -> dict[str, Any]:
+            self._require_active_episode()
             self.done = True
             self.reward = 0.0
             self.status = "abandoned"
@@ -204,6 +215,9 @@ class NoodleFlightsEnvironment(MCPEnvironment):
         self.last_search_results = {"departing": [], "returning": []}
         self.selected_departing = None
         self.selected_returning = None
+        self.evaluation = None
+        self._reference_prices = None
+        self._reward_reported = False
         self.sim_metadata = self._fetch_sim_metadata()
         return self.state
 
@@ -226,7 +240,46 @@ class NoodleFlightsEnvironment(MCPEnvironment):
             },
             selected_departing=self.selected_departing,
             selected_returning=self.selected_returning,
+            evaluation=self.evaluation,
         )
+
+    def step(
+        self,
+        action: Action,
+        timeout_s: float | None = None,
+        **kwargs: Any,
+    ) -> Observation:
+        observation = super().step(action, timeout_s=timeout_s, **kwargs)
+        return self._finish_step(observation)
+
+    if MCPEnvironment.step_async is not Environment.step_async:
+        # openenv-core 0.3+ serves WebSocket steps through step_async, which no
+        # longer goes through step(), so both paths report done and reward.
+        async def step_async(
+            self,
+            action: Action,
+            timeout_s: float | None = None,
+            **kwargs: Any,
+        ) -> Observation:
+            observation = await super().step_async(action, timeout_s=timeout_s, **kwargs)
+            return self._finish_step(observation)
+
+    def _finish_step(self, observation: Observation) -> Observation:
+        """Report the episode state on the step observation.
+
+        Tool calls return MCP observations whose done/reward default to
+        False/None, so the episode outcome is copied here. The episode reward
+        is reported once, on the step that ends the episode; every other step
+        reports 0.0, so summing step rewards gives the episode reward.
+        """
+        self.step_count += 1
+        observation.done = self.done
+        if self.done and not self._reward_reported:
+            observation.reward = self.reward
+            self._reward_reported = True
+        else:
+            observation.reward = 0.0
+        return observation
 
     def close(self) -> None:
         super().close()
@@ -251,56 +304,47 @@ class NoodleFlightsEnvironment(MCPEnvironment):
             },
         )
 
-    def _evaluate_completion(self) -> dict[str, Any]:
+    def _require_active_episode(self) -> None:
+        if self.done:
+            raise RuntimeError("The episode has ended. Call reset to start a new episode.")
+
+    def _evaluate_completion(self) -> None:
+        """Grade the submission and end the episode.
+
+        The result is final, and the expected flights are never returned to
+        the agent; failure reasons are kept in the environment state only.
+        """
         if not self.task:
             raise RuntimeError("reset must be called before complete_booking")
+        failures = self._submission_failures()
+        self.done = True
+        self.reward = 0.0 if failures else 1.0
+        self.status = "failed" if failures else "completed"
+        self.last_error = "; ".join(failures) or None
+        self.evaluation = {"passed": not failures, "failures": failures}
+
+    def _submission_failures(self) -> list[str]:
+        assert self.task is not None
         if not self.last_search_request:
-            self.last_error = "Run search_flights before complete_booking."
-            return {"ok": False, "message": self.last_error}
+            return ["no search was run"]
 
         mismatches = self._search_mismatches()
         if mismatches:
-            self.last_error = (
-                "The current search does not match the active task. "
-                f"Fix these fields first: {', '.join(mismatches)}."
-            )
-            return {"ok": False, "message": self.last_error, "mismatches": mismatches}
+            return [f"search does not match the task ({', '.join(mismatches)})"]
 
-        if not self.selected_departing:
-            self.last_error = "Select a departing flight before completing the booking."
-            return {"ok": False, "message": self.last_error}
-
-        if self.task.trip_type == "round-trip" and not self.selected_returning:
-            self.last_error = "Select a return flight before completing the booking."
-            return {"ok": False, "message": self.last_error}
-
-        expected_departing = self._cheapest_option("departing")
-        expected_returning = self._cheapest_option("returning")
-
-        departing_matches = self._matches_expected(self.selected_departing, expected_departing)
-        returning_matches = True
+        legs: list[Leg] = ["departing"]
         if self.task.trip_type == "round-trip":
-            returning_matches = self._matches_expected(self.selected_returning, expected_returning)
+            legs.append("returning")
 
-        if departing_matches and returning_matches:
-            self.done = True
-            self.reward = 1.0
-            self.status = "completed"
-            self.last_error = None
-            return {
-                "ok": True,
-                "message": "Booking completed successfully.",
-                "expected_departing": expected_departing,
-                "expected_returning": expected_returning,
-            }
-
-        self.last_error = "The selected itinerary does not satisfy the MVP task rubric."
-        return {
-            "ok": False,
-            "message": self.last_error,
-            "expected_departing": expected_departing,
-            "expected_returning": expected_returning,
-        }
+        cheapest = self._reference_cheapest_prices()
+        failures: list[str] = []
+        for leg in legs:
+            selected = self.selected_departing if leg == "departing" else self.selected_returning
+            if not selected:
+                failures.append(f"no {leg} flight selected")
+            elif cheapest[leg] is None or selected["price_usd"] != cheapest[leg]:
+                failures.append(f"{leg} flight is not the cheapest available option")
+        return failures
 
     def _search_mismatches(self) -> list[str]:
         assert self.task is not None
@@ -320,22 +364,38 @@ class NoodleFlightsEnvironment(MCPEnvironment):
                 mismatches.append(key)
         return mismatches
 
-    def _cheapest_option(self, leg: Literal["departing", "returning"]) -> dict[str, Any] | None:
-        options = self.last_search_results[leg]
-        if not options:
-            return None
-        return min(options, key=lambda option: (option["price_usd"], option["option_id"]))
+    def _reference_cheapest_prices(self) -> dict[str, int | None]:
+        """Cheapest price per leg from a full search with the task's own parameters.
+
+        Grading uses this search rather than the agent's last one, so a narrowed
+        search (for example with exclude_layovers) cannot change which option
+        counts as the cheapest. Any option at the cheapest price is accepted.
+        """
+        if self._reference_prices is None:
+            assert self.task is not None
+            params: dict[str, Any] = {
+                "tripType": self.task.trip_type,
+                "origin": self.task.origin,
+                "destination": self.task.destination,
+                "departureDate": self.task.departure_date,
+                "travelClass": self.task.travel_class,
+                "excludeLayovers": "false",
+            }
+            if self.task.return_date:
+                params["returnDate"] = self.task.return_date
+            payload = self._get_json("/api/flights", params)
+            self._reference_prices = {
+                "departing": self._lowest_price(payload.get("departingFlights", [])),
+                "returning": self._lowest_price(payload.get("returningFlights", [])),
+            }
+        return self._reference_prices
 
     @staticmethod
-    def _matches_expected(
-        actual: dict[str, Any] | None,
-        expected: dict[str, Any] | None,
-    ) -> bool:
-        if not actual or not expected:
-            return False
-        return actual["option_id"] == expected["option_id"]
+    def _lowest_price(flights: list[dict[str, Any]]) -> int | None:
+        prices = [flight["priceUsd"] for flight in flights if flight.get("priceUsd") is not None]
+        return min(prices) if prices else None
 
-    def _select_option(self, leg: Literal["departing", "returning"], option_id: int) -> dict[str, Any]:
+    def _select_option(self, leg: Leg, option_id: int) -> dict[str, Any]:
         for option in self.last_search_results[leg]:
             if option["option_id"] == option_id:
                 return option

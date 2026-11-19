@@ -65,6 +65,10 @@ The current wrapper is intentionally minimal:
 - Episode state, itinerary selection, and task completion are managed in the OpenEnv wrapper
 - The wrapper currently targets a small deterministic task set suitable for an MVP hub launch
 
+`complete_booking` submits the selected flights and ends the episode. The reward is 1.0 when the search matches the task and every selected flight is at the cheapest price returned by a full search with the task's own parameters, and 0.0 otherwise. The expected flights are never returned to the agent, and once the episode has ended every tool except `get_selection` refuses to run. Each step observation carries `done`, and the step that ends the episode carries the episode reward, so trainers that read OpenEnv step results receive it.
+
+Run the wrapper tests with `uv run --with pytest pytest tests`.
+
 ## Simulator Contract
 
 The app exposes a small public metadata contract at `GET /api/version`. The handler lives in [`app/api/version/route.ts`](app/api/version/route.ts).
