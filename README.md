@@ -65,7 +65,11 @@ The current wrapper is intentionally minimal:
 - Episode state, itinerary selection, and task completion are managed in the OpenEnv wrapper
 - The wrapper currently targets a small deterministic task set suitable for an MVP hub launch
 
-`complete_booking` submits the selected flights and ends the episode. The reward is 1.0 when the search matches the task and every selected flight is at the cheapest price returned by a full search with the task's own parameters, and 0.0 otherwise. The expected flights are never returned to the agent, and once the episode has ended every tool except `get_selection` refuses to run. Each step observation carries `done`, and the step that ends the episode carries the episode reward, so trainers that read OpenEnv step results receive it.
+`complete_booking` submits the selected flights and ends the episode. The reward is 1.0 when every selected flight flies the task's route on the task's date, comes from a search in the task's travel class, and costs the cheapest price returned by a full search with the task's own parameters; otherwise it is 0.0. How the search is spelled (case, spacing, or a city name the simulator resolves to the task's airport) does not affect the grade. The expected flights are never returned to the agent, and once the episode has ended every tool except `get_selection` refuses to run.
+
+Each step observation carries `done`, and the step that ends the episode carries the episode reward, so trainers that read OpenEnv step results receive it. Tool calls sent as raw MCP messages (the WebSocket `mcp` message type) do not go through `step`; their reward and `done` appear only in the tool result and in `state`, so trainers should send tool calls as `call_tool` step actions, as Prime's `OpenEnvEnv` does.
+
+If the simulator cannot answer while `complete_booking` grades the submission, the agent gets a generic error without the internal URL, the episode stays open so the agent can submit again, and `state` records the failure in `grading_errors` and `last_error`.
 
 Run the wrapper tests with `uv run --with pytest pytest tests`.
 

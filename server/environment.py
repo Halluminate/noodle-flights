@@ -14,6 +14,25 @@ TripType = Literal["one-way", "round-trip"]
 Leg = Literal["departing", "returning"]
 
 
+class SimulatorUnavailable(RuntimeError):
+    """The simulator API did not answer. The message never includes the internal URL."""
+
+
+def _describe_failure(exc: Exception) -> str:
+    if isinstance(exc, requests.HTTPError) and exc.response is not None:
+        return f"HTTP {exc.response.status_code}"
+    if isinstance(exc, requests.Timeout):
+        return "timeout"
+    if isinstance(exc, requests.ConnectionError):
+        return "connection error"
+    return type(exc).__name__
+
+
+def _normalized_class(value: Any) -> str:
+    """'Economy', ' premium-economy ' and 'premium_economy' compare equal to their lower-case form."""
+    return " ".join(str(value or "").replace("-", " ").replace("_", " ").lower().split())
+
+
 @dataclass(frozen=True)
 class TaskSpec:
     id: str
@@ -75,12 +94,14 @@ class NoodleFlightsEnvironment(MCPEnvironment):
         self.selected_departing: dict[str, Any] | None = None
         self.selected_returning: dict[str, Any] | None = None
         self.evaluation: dict[str, Any] | None = None
+        self.grading_errors = 0
         self._reference_prices: dict[str, int | None] | None = None
         self._reward_reported = False
 
     def _register_tools(self) -> None:
         @self.mcp.tool
         def search_airports(query: str = "", limit: int = 10) -> dict[str, Any]:
+            self._require_active_episode()
             payload = self._get_json("/api/airports", {"q": query, "limit": limit})
             return {
                 "query": payload.get("query", query),
@@ -180,7 +201,14 @@ class NoodleFlightsEnvironment(MCPEnvironment):
         def complete_booking() -> dict[str, Any]:
             """Submit the selected flights. This ends the episode; the submission is final."""
             self._require_active_episode()
-            self._evaluate_completion()
+            try:
+                self._evaluate_completion()
+            except SimulatorUnavailable as exc:
+                # Nothing was graded: keep the episode open so the agent can submit again,
+                # and record the failure so the harness can tell it apart from a wrong answer.
+                self.grading_errors += 1
+                self.last_error = f"grading search failed: {exc}"
+                raise
             return {
                 "done": self.done,
                 "reward": self.reward,
@@ -216,6 +244,7 @@ class NoodleFlightsEnvironment(MCPEnvironment):
         self.selected_departing = None
         self.selected_returning = None
         self.evaluation = None
+        self.grading_errors = 0
         self._reference_prices = None
         self._reward_reported = False
         self.sim_metadata = self._fetch_sim_metadata()
@@ -241,6 +270,7 @@ class NoodleFlightsEnvironment(MCPEnvironment):
             selected_departing=self.selected_departing,
             selected_returning=self.selected_returning,
             evaluation=self.evaluation,
+            grading_errors=self.grading_errors,
         )
 
     def step(
@@ -324,45 +354,44 @@ class NoodleFlightsEnvironment(MCPEnvironment):
         self.evaluation = {"passed": not failures, "failures": failures}
 
     def _submission_failures(self) -> list[str]:
+        """Reasons the submission fails, or an empty list when it is correct.
+
+        The selected flights are checked directly: each must fly the task's route on the
+        task's date, come from a search in the task's travel class, and cost the cheapest
+        price for its leg. How the search was spelled (case, spacing, or a city name the
+        simulator resolves to the task's airport) does not matter.
+        """
         assert self.task is not None
         if not self.last_search_request:
             return ["no search was run"]
+        if _normalized_class(self.last_search_request.get("travel_class")) != _normalized_class(self.task.travel_class):
+            return ["search used a different travel class"]
 
-        mismatches = self._search_mismatches()
-        if mismatches:
-            return [f"search does not match the task ({', '.join(mismatches)})"]
-
-        legs: list[Leg] = ["departing"]
+        legs: list[tuple[Leg, str, str, str | None]] = [
+            ("departing", self.task.origin, self.task.destination, self.task.departure_date)
+        ]
         if self.task.trip_type == "round-trip":
-            legs.append("returning")
+            legs.append(("returning", self.task.destination, self.task.origin, self.task.return_date))
 
         cheapest = self._reference_cheapest_prices()
         failures: list[str] = []
-        for leg in legs:
+        for leg, origin, destination, date in legs:
             selected = self.selected_departing if leg == "departing" else self.selected_returning
             if not selected:
                 failures.append(f"no {leg} flight selected")
+            elif not self._flies(selected, origin, destination, date):
+                failures.append(f"{leg} flight is not on the task's route and date")
             elif cheapest[leg] is None or selected["price_usd"] != cheapest[leg]:
                 failures.append(f"{leg} flight is not the cheapest available option")
         return failures
 
-    def _search_mismatches(self) -> list[str]:
-        assert self.task is not None
-        assert self.last_search_request is not None
-
-        mismatches: list[str] = []
-        expected = {
-            "origin": self.task.origin,
-            "destination": self.task.destination,
-            "departure_date": self.task.departure_date,
-            "return_date": self.task.return_date,
-            "travel_class": self.task.travel_class,
-            "trip_type": self.task.trip_type,
-        }
-        for key, value in expected.items():
-            if self.last_search_request.get(key) != value:
-                mismatches.append(key)
-        return mismatches
+    @staticmethod
+    def _flies(option: dict[str, Any], origin: str, destination: str, date: str | None) -> bool:
+        return (
+            str(option.get("origin_airport") or "").upper() == origin.upper()
+            and str(option.get("destination_airport") or "").upper() == destination.upper()
+            and str(option.get("depart_iso") or "").startswith(date or "")
+        )
 
     def _reference_cheapest_prices(self) -> dict[str, int | None]:
         """Cheapest price per leg from a full search with the task's own parameters.
@@ -434,6 +463,11 @@ class NoodleFlightsEnvironment(MCPEnvironment):
 
     def _get_json(self, path: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
         url = f"{self.app_base_url}{path}"
-        response = requests.get(url, params=params, timeout=self.http_timeout)
-        response.raise_for_status()
-        return response.json()
+        try:
+            response = requests.get(url, params=params, timeout=self.http_timeout)
+            response.raise_for_status()
+            return response.json()
+        except (requests.RequestException, ValueError) as exc:
+            raise SimulatorUnavailable(
+                f"The flight search service is unavailable ({_describe_failure(exc)}). Try again."
+            ) from exc
